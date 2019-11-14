@@ -1,0 +1,136 @@
+# Test runs on 2x RTX 2080Ti
+default_run:
+  epochs: 10
+  batch: 256
+  lr: 0.001
+  img_size: 224
+  checkpoint:
+  parallel: True  # Use torch.cuda.device_count() instead?
+  img_folder: "adjacent_hu_cropped"
+  architecture: "efficientnet-b0"
+  stage: "test1"
+  cv_scheme: "team_folds_v1"
+
+# Test runs on GTX 1080
+default_run_1080:
+  epochs: 10
+  batch: 128
+  lr: 0.001
+  img_size: 224
+  checkpoint:
+  parallel: False
+  img_folder: "adjacent_hu_cropped"
+  architecture: "efficientnet-b0"
+  stage: "test1"
+  cv_scheme: "team_folds_v1"
+
+# Stage 1 training runs
+efficientnetb0:
+  epochs: 10
+  batch: 256
+  lr: 0.001
+  img_size: 224
+  checkpoint:
+  parallel: True  # Use torch.cuda.device_count() instead?
+  img_folder: "adjacent_hu_cropped"
+  architecture: "efficientnet-b0"
+  stage: "test1"
+  cv_scheme: "team_folds_v1"
+
+efficientnetb5:
+  epochs: 10
+  batch: 24
+  lr: 0.001
+  img_size: 456
+  checkpoint:
+  parallel: True
+  img_folder: "adjacent_hu_cropped"
+  architecture: "efficientnet-b5"
+  stage: "test1"
+  cv_scheme: "team_folds_v1"
+
+efficientnetb3:
+  epochs: 10
+  batch: 64
+  lr: 0.001
+  img_size: 300
+  checkpoint:
+  parallel: True
+  img_folder: "brain-subdural-bone"
+  architecture: "efficientnet-b3"
+  stage: "test1"
+  cv_scheme: "team_folds_v2"
+
+densenet169:
+  epochs: 10
+  batch: 32
+  lr: 0.001
+  img_size: 448
+  checkpoint:
+  parallel: True
+  img_folder: "adjacent_hu_cropped"
+  architecture: "densenet169"
+  stage: "test1"
+  cv_scheme: "team_folds_v2"
+
+seresnext:
+  epochs: 10
+  batch: 20
+  lr: 0.001
+  img_size: 512
+  checkpoint:
+  parallel: True
+  img_folder: "adjacent_hu_cropped"
+  architecture: "seresnext"
+  stage: "test1"
+  cv_scheme: "team_folds_v2"
+
+vgg19:
+  epochs: 10
+  batch: 64
+  lr: 0.001
+  img_size: 512
+  checkpoint:
+  parallel: True
+  img_folder: "adjacent_hu_cropped"
+  architecture: "vgg19"
+  stage: "test1"
+  cv_scheme: "team_folds_v2"
+
+
+# Stage 2 inference runs
+efficientnetb0-stage2:
+  epochs: 1
+  batch: 256
+  lr: 0.001
+  img_size: 224
+  checkpoint:  "20191021-213751"
+  parallel: True  # Use torch.cuda.device_count() instead?
+  img_folder: "adjacent_hu_cropped"
+  architecture: "efficientnet-b0"
+  stage: "test2"
+  cv_scheme: "team_folds_v1"
+
+efficientnetb5-stage2:
+  epochs: 1
+  batch: 24
+  lr: 0.001
+  img_size: 456
+  checkpoint: "20191024-052723"
+  parallel: True
+  img_folder: "adjacent_hu_cropped"
+  architecture: "efficientnet-b5"
+  stage: "test2"
+  cv_scheme: "team_folds_v1"
+
+efficientnetb3-stage2:
+  epochs: 1
+  batch: 64
+  lr: 0.001
+  img_size: 300
+  checkpoint: "20191101-063045"
+  parallel: True
+  img_folder: "brain-subdural-bone"
+  architecture: "efficientnet-b3"
+  stage: "test2"
+  cv_scheme: "team_folds_v2"
