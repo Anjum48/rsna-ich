@@ -1,6 +1,8 @@
 # RSNA Intracranial Hemorrhage Detection
 https://www.kaggle.com/c/rsna-intracranial-hemorrhage-detection
 
+A video of our solution can be found here: https://www.youtube.com/watch?v=1zLBxwTAcAs
+
 # Hardware used
 * 2x NVidia RTX 2080Ti GPUs
 * 128GB RAM
